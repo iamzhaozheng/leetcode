@@ -21,8 +21,8 @@ public class LongestValidParentheses {
 				if (stack.isEmpty()) {
 					if (max < l) {
 						max = l;
-						l = 0;
 					}
+					l = 0;
 					start = i + 1;
 				} else {
 					stack.pop();
