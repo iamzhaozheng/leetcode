@@ -3,8 +3,9 @@ package com.hisrv.leetcode;
 
 public class Main {
 	public static void main(String[] args) {
-		LongestValidParentheses l = new LongestValidParentheses();
-		System.out.print(l.longestValidParentheses("()(((((()()(((())())))))))())))())())()()(()))(()))()))((()))))(())(()()))((((())()()())(((()((()(())((()())"));
+		MaximalRectangle m = new MaximalRectangle();
+		char[][] cs = new char[][] {{'0', '0'}};
+		System.out.println(m.maximalRectangle(cs));
 	}
 	
 }
