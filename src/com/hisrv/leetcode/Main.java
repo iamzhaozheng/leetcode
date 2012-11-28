@@ -10,6 +10,11 @@ public class Main {
 			cs[i] = ss[i].toCharArray();
 		}
 		System.out.println(m.maximalRectangle(cs));
+		
+		double k1 = 0.037037;
+		double b1 = 194.111111;
+		double ax = 131;
+		System.out.println((int)(k1 * ax + b1));
 	}
 	
 }
