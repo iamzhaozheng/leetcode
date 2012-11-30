@@ -18,40 +18,34 @@ public class MedianOfTwoSortedArrays {
         }
         int sa = 0;
         int sb = 0;
-        int ea = la - 1;
-        int eb = lb - 1;
-        int pa = 0, pb = 0;
-        int m = (la + lb + 1) / 2;
-        if (la > m) {
-            sa = la - m;
-            ea = m - 1;
+        int d = (la + lb) / 2;
+        int pa = d / 2;
+        int pb = d / 2;
+        while (pa >= la || pb >= la || A[pa] != B[pb]) {
+        	if (pa <= sa || pb <= sb) {
+        		break;
+        	}
+        	d = (pa - sa + pb - sb) / 2;
+        	if (pa >= la) {
+        		pa -= d;
+        		sb = pb;
+        		pb += d;
+        	} else if (pb >= la) {
+        		sa = pa;
+        		pa += d;
+        		pb -= d;
+        	} else if (A[pa] > B[pb]) {
+        		pa -= d;
+        		sb = pb;
+        		pb += d;
+        	} else {
+        		sa = pa;
+        		pa += d;
+        		pb -= d;
+        	}
         }
-        if (lb > m) {
-            sb = lb - m;
-            eb = m - 1;
-        }
-        while (sa < ea || sb < eb) {
-            pa = (sa + ea) / 2;
-            pb = (sb + eb) / 2;
-            if (A[pa] == B[pb]) {
-                break;
-            } else if (A[pa] > B[pb]) {
-                ea = pa - 1;
-                sb = pb + 1;
-            } else {
-                sa = pa + 1;
-                eb = pb - 1;
-            }
-        }
-        if ((la + lb) % 2 == 0) {
-            if (A[pa] > B[pb]) {
-                
-            } else {
-                
-            }
-        } else {
-            return 0;
-        }
+        
+        
         return 0;
     }
 }
