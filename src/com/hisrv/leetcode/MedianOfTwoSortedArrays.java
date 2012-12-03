@@ -20,17 +20,18 @@ public class MedianOfTwoSortedArrays {
         int sb = 0;
         int d = (la + lb) / 2;
         int pa = d / 2;
-        int pb = d / 2;
+        int pb = d - 1 - pa;
+        d /= 2;
         while (pa >= la || pb >= la || A[pa] != B[pb]) {
-        	if (pa <= sa || pb <= sb) {
+        	if (pa < sa || pb < sb || d == 0) {
         		break;
         	}
-        	d = (pa - sa + pb - sb) / 2;
+        	d = d / 2;
         	if (pa >= la) {
         		pa -= d;
         		sb = pb;
         		pb += d;
-        	} else if (pb >= la) {
+        	} else if (pb >= lb) {
         		sa = pa;
         		pa += d;
         		pb -= d;
@@ -44,8 +45,26 @@ public class MedianOfTwoSortedArrays {
         		pb -= d;
         	}
         }
-        
-        
-        return 0;
+    	if ((la + lb) % 2 == 0) {
+    		if (pa < la) {
+    			if (pb < lb) {
+    				return (A[pa] + B[pb]) / 2f;
+    			} else {
+    				return (A[pa] + A[pa + 1]) / 2f;
+    			}
+    		} else {
+    			return (B[pb] + B[pb + 1]) / 2f;
+    		}
+    	} else {
+    		if (pa < la) {
+    			if (pb < lb) {
+    				return Math.max(A[pa], B[pb]);
+    			} else {
+    				return A[pa];
+    			}
+    		} else {
+    			return B[pb];
+    		}
+    	}
     }
 }
