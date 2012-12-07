@@ -7,8 +7,16 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
+	}
+	
+	public static void testFindKth() {
 		FindKthNum f = new FindKthNum();
-		System.out.println(f.findKthMin(new int[] {2, 3, 4, 6}, new int[] {1}, 2));
+		System.out.println(f.findKthMin(new int[] {1, 3}, new int[] {2, 4}, 2));
+	}
+	
+	public static void testMedianOfTwoSortedArrays() {
+		MedianOfTwoSortedArrays f = new MedianOfTwoSortedArrays();
+		System.out.println(f.findMedianSortedArrays(new int[] {1, 3}, new int[] {2, 4}));
 	}
 	
 }

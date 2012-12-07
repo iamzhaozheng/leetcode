@@ -15,57 +15,34 @@ public class FindKthNum {
 		} else if (lb == 0) {
 			return A[k - 1];
 		}
-		k--;
 		int sa = 0;
 		int sb = 0;
-		int ea = Math.min(k, la);
-		int eb = Math.min(k, lb);
-		int pa, pb;
-		if (ea >= eb) {
-			pb = eb / 2;
-			pa = k - pb;
-			while (pb != eb && pa != ea && A[pa] != B[pb] && sb < eb) {
-				if (A[pa] > B[pb]) {
-					int mv = (eb - pb + 1) / 2;
-					sb = pb;
-					pb = pb + mv;
-					ea = pa;
-					pa = pa - mv;
-				} else {
-					int mv = (pb - sb + 1) / 2;
-					eb = pb;
-					pb = pb - mv;
-					sa = pa;
-					pa = pa + mv;
-				}
+		while (true) {
+			int pa = la * (k - 1) / (la + lb);
+			int pb = k - 1 - pa;
+			
+			int a0 = pa == 0 ? Integer.MIN_VALUE : A[sa + pa - 1];
+			int a1 = pa == la ? Integer.MAX_VALUE : A[sa + pa];
+			int b0 = pb == 0 ? Integer.MIN_VALUE : B[sb + pb - 1];
+			int b1 = pb == lb ? Integer.MAX_VALUE : B[sb + pb];
+			
+			if (a1 >= b0 && a1 <= b1) {
+				return a1;
 			}
-		} else {
-			pa = ea / 2;
-			pb = k - pa;
-			while (pa != ea && pb != eb && A[pa] != B[pb] && sa < ea) {
-				if (A[pa] > B[pb]) {
-					int mv = (ea - pa + 1) / 2;
-					sa = pa;
-					pa = pa + mv;
-					eb = pb;
-					pb = pb - mv;
-				} else {
-					int mv = (pa - sa + 1) / 2;
-					ea = pa;
-					pa = pa - mv;
-					sb = pb;
-					pb = pb + mv;
-				}
+			if (b1 >= a0 && b1 <= a1) {
+				return b1;
 			}
-		}
-		if (pa == la && pb == lb) {
-			return Math.max(B[pb - 1], A[pa - 1]);
-		} else if (pa == la) {
-			return Math.max(B[pb], A[pa - 1]);
-		} else if (pb == lb) {
-			return Math.max(A[pa], B[pb - 1]);
-		} else {
-			return Math.min(A[pa], B[pb]);
+			if (a1 > b1) {
+				sb += pb + 1; 
+				lb -= pb + 1;
+				la = pa;
+				k -= pb + 1;
+			} else {
+				sa += pa + 1;
+				la -= pa + 1;
+				lb = pb;
+				k -= pa + 1;
+			}
 		}
 	}
 }
