@@ -26,6 +26,9 @@ public class MergeKSortedList {
 		int hl = 0;
 		for (int i = 0; i < n; i++) {
 			ListNode node = lists.get(i);
+			if (node == null) {
+				continue;
+			}
 			heap[hl] = node;
 			int j = hl;
 			while ((j - 1) / 2 >= 0 && heap[j].val < heap[(j - 1) / 2].val) {
@@ -42,6 +45,35 @@ public class MergeKSortedList {
 			} else {
 				p.next = heap[0];
 				p = p.next;
+			}
+			heap[0] = heap[0].next == null ? heap[--hl] : heap[0].next;
+			if (hl == 0) {
+				break;
+			}
+			int i = 0;
+			while (i < hl) {
+				int left = 2 * i + 1;
+				int right = 2 * i + 2;
+				if (right < hl) {
+					if (heap[left].val < heap[i].val && heap[left].val <= heap[right].val) {
+						swap(heap, left, i);
+						i = left;
+					} else if (heap[right].val < heap[i].val && heap[right].val < heap[left].val) {
+						swap(heap, right, i);
+						i = right;
+					} else {
+						break;
+					}
+				} else if (left < hl) {
+					if (heap[left].val < heap[i].val) {
+						swap(heap, left, i);
+						i = left;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
 			}
 		}
 		return ret;
