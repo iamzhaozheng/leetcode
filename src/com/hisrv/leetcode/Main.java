@@ -6,9 +6,14 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
-		testMultiplyStrings();
+		testNQueens();
 	}
 
+	public static void testNQueens() {
+		NQueens f = new NQueens();
+		f.solveNQueens(4);
+	}
+	
 	public static void testMultiplyStrings() {
 		MultiplyStrings f = new MultiplyStrings();
 		System.out.println(f.multiply("9", "99"));
