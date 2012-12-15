@@ -1,13 +1,15 @@
 package com.hisrv.leetcode;
 
 public class PopulationNextRightPointersInEachNode2 {
+	
+	private TreeLinkNode top;
     public void connect(TreeLinkNode root) {
         // Start typing your Java solution below
         // DO NOT write main() function
         if (root == null) {
             return;
         }
-        TreeLinkNode left, top, p, q;
+        TreeLinkNode left, p, q;
         root.next = null;
         top = root;
         if (top.left == null && top.right == null) {
@@ -20,10 +22,10 @@ public class PopulationNextRightPointersInEachNode2 {
         }
         p = left;
         while (true) {
-            q = findNext(top, p);
+            q = findNext(p);
             if (q == null) {
                 top = left;
-                left = findNext(top, null);
+                left = findNext(null);
                 if (left == null) {
                     return;
                 }
@@ -35,7 +37,7 @@ public class PopulationNextRightPointersInEachNode2 {
         }
     }
     
-    private TreeLinkNode findNext(TreeLinkNode top, TreeLinkNode now) {
+    private TreeLinkNode findNext(TreeLinkNode now) {
         if (now == null) {
             if (top.left != null) {
                 return top.left;
