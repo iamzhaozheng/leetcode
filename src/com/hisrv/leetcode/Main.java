@@ -6,9 +6,23 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
-		testNQueens();
+	    testPopulating();
 	}
 
+	public static void testPopulating() {
+	    PopulationNextRightPointersInEachNode2 f = new PopulationNextRightPointersInEachNode2();
+	    TreeLinkNode root = new TreeLinkNode(1);
+	    TreeLinkNode l = new TreeLinkNode(2);
+	    root.left = l;
+	    l = new TreeLinkNode(3);
+	    root.right = l;
+	    l = new TreeLinkNode(4);
+	    root.left.left = l;
+        l = new TreeLinkNode(5);
+        root.right.right = l;
+	    f.connect(root);
+	}
+	
 	public static void testNQueens() {
 		NQueens f = new NQueens();
 		f.solveNQueens(4);
