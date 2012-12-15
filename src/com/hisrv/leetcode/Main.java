@@ -6,9 +6,14 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
-	    testPopulating();
+		testPow();
 	}
 
+	public static void testPow() {
+		Pow f = new Pow();
+		System.out.println(f.pow(1, 2));
+	}
+	
 	public static void testPopulating() {
 	    PopulationNextRightPointersInEachNode2 f = new PopulationNextRightPointersInEachNode2();
 	    TreeLinkNode root = new TreeLinkNode(1);
