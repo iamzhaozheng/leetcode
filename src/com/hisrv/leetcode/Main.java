@@ -1,14 +1,23 @@
 package com.hisrv.leetcode;
 
+
 /**
  * @author zhengzhaomail
  * 
  */
 public class Main {
 	public static void main(String[] args) {
-		testPow();
+		testRecoverBST();
+//		TreeBuilder.out(TreeBuilder.create(new String[] {"1", "#", "2", "3"}));
 	}
 
+	public static void testRecoverBST() {
+		RecoverBinarySearchTree f = new RecoverBinarySearchTree();
+		TreeNode root = TreeBuilder.create(new String[] {"2", "#", "1"});
+		f.recoverTree(root);
+		TreeBuilder.out(root);
+	}
+	
 	public static void testPow() {
 		Pow f = new Pow();
 		System.out.println(f.pow(1, 2));

@@ -36,19 +36,23 @@ public class RecoverBinarySearchTree {
         if (root == null) {
             return;
         }
+        last = null; t = null; t2 = null;
         Stack<TreeNode> s = new Stack<TreeNode> ();
         TreeNode p = root;
         while (p != null) {
             if (p.left == null) {
+                if (update(p)) {
+                    return;
+                }
                 while (p.right == null) {
-                    if (update(p)) {
-                        return;
-                    }
                     if (s.isEmpty()) {
                         swap(t, t2);
                         return;
                     }
                     p = s.pop();
+                    if (update(p)) {
+                        return;
+                    }
                 }
                 p = p.right;
             } else {
