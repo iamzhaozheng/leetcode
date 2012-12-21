@@ -7,10 +7,14 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
-		testRecoverBST();
-//		TreeBuilder.out(TreeBuilder.create(new String[] {"1", "#", "2", "3"}));
+		testRegularExpMatching();
 	}
 
+	public static void testRegularExpMatching() {
+		RegularExpressionMatching f = new RegularExpressionMatching();
+		System.out.println(f.isMatch("a", "ab*a"));
+	}
+	
 	public static void testRecoverBST() {
 		RecoverBinarySearchTree f = new RecoverBinarySearchTree();
 		TreeNode root = TreeBuilder.create(new String[] {"2", "#", "1"});
