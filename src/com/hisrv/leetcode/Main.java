@@ -7,7 +7,12 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
-		testRegularExpMatching();
+		testReverseNodesInKGroup();
+	}
+	
+	public static void testReverseNodesInKGroup() {
+		ReverseNodesInKGroup f = new ReverseNodesInKGroup();
+		ListNodeBuilder.out(f.reverseKGroup(ListNodeBuilder.create(new int[] {1, 2, 3, 4, 5, 6}), 2));
 	}
 
 	public static void testRegularExpMatching() {
