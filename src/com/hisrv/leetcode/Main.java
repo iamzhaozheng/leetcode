@@ -1,5 +1,7 @@
 package com.hisrv.leetcode;
 
+import java.util.List;
+
 
 /**
  * @author zhengzhaomail
@@ -7,7 +9,30 @@ package com.hisrv.leetcode;
  */
 public class Main {
 	public static void main(String[] args) {
-		testReverseNodesInKGroup();
+		testStringToInteger();
+	}
+	
+	public static void testStringToInteger() {
+		StringToInteger f = new StringToInteger();
+		System.out.println(f.atoi("3147483648"));
+	}
+	
+	public static void testSqrtx() {
+		Sqrtx f = new Sqrtx();
+		System.out.println(f.sqrt(2147395599));
+	}
+	
+	public static void testSpiralMatrix() {
+		SpiralMatrix f = new SpiralMatrix();
+		List<Integer> r = f.spiralOrder(new int[][]{{1, 2}});
+		for (int i = 0; i < r.size(); i ++) {
+			System.out.print(String.format("%d ", r.get(i)));
+		}
+	}
+	
+	public static void testSimplifyPath() {
+		SimplifyPath f = new SimplifyPath();
+		System.out.println(f.simplifyPath("/."));
 	}
 	
 	public static void testReverseNodesInKGroup() {
