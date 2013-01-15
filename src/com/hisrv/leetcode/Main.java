@@ -1,12 +1,22 @@
 package com.hisrv.leetcode;
 
+import java.util.ArrayList;
+
 /**
  * @author zhengzhaomail
  * 
  */
 public class Main {
 	public static void main(String[] args) {
-		testSudokuSolver();
+		testTextJustification();
+	}
+	
+	public static void testTextJustification() {
+		TextJustification f = new TextJustification();
+		ArrayList<String> ret = f.fullJustify(new String[] {""}, 0);
+		for (String s : ret) {
+			System.out.println(s);
+		}
 	}
 
 	public static void testSudokuSolver() {
