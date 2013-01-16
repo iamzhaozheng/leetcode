@@ -8,7 +8,27 @@ import java.util.ArrayList;
  */
 public class Main {
 	public static void main(String[] args) {
-		testTextJustification();
+		testTwoSum();
+	}
+	
+	public static void testTwoSum() {
+		TwoSum f = new TwoSum();
+		int[] ret = f.twoSum(new int[] {5, 75, 25}, 100);
+		System.out.println(ret[0]);
+		System.out.println(ret[1]);
+	}
+	
+	public static void testTriangle() {
+		Triangle f = new Triangle();
+		ArrayList<ArrayList<Integer>> ta = new ArrayList<ArrayList<Integer>> ();
+		ArrayList<Integer> a1 = new ArrayList<Integer>();
+		a1.add(1);
+		ta.add(a1);
+		ArrayList<Integer> a2 = new ArrayList<Integer>();
+		a2.add(2);
+		a2.add(3);
+		ta.add(a2);
+		System.out.println(f.minimumTotal(ta));
 	}
 	
 	public static void testTextJustification() {
