@@ -10,7 +10,12 @@ import java.util.ArrayList;
  */
 public class Main {
 	public static void main(String[] args) {
-		testStringToInteger();
+		testWildcardMatching();
+	}
+	
+	public static void testWildcardMatching() {
+		WildcardMatching f = new WildcardMatching();
+		System.out.println(f.isMatch("bbaabbbabbbbabbbaaabababbbabbababbbabaaabbbbaabaabaaaa", "*b**b*a**abbaab*aba***"));
 	}
 	
 	public static void testStringToInteger() {
