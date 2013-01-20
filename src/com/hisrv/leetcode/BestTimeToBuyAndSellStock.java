@@ -1,6 +1,6 @@
 package com.hisrv.leetcode;
 
-public class BuyStock {
+public class BestTimeToBuyAndSellStock {
 	public class Solution {
 	    public int maxProfit(int[] prices) {
 	        // Start typing your Java solution below
