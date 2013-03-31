@@ -1,8 +1,7 @@
 package com.hisrv.leetcode;
 
-import java.util.List;
-
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author zhengzhaomail
@@ -10,9 +9,20 @@ import java.util.ArrayList;
  */
 public class Main {
 	public static void main(String[] args) {
-		testWildcardMatching();
+		testPalindromePartitioning();
 	}
 
+	public static void testPalindromePartitioning() {
+		PalindromePartitioning f = new PalindromePartitioning();
+		ArrayList<ArrayList<String>> ret = f.partition("cdd");
+		for (ArrayList<String> palins : ret) {
+			for (String palin : palins) {
+				System.out.print(palin + " ");
+			}
+			System.out.print("\n");
+		}
+	}
+	
 	public static void testWildcardMatching() {
 		WildcardMatching f = new WildcardMatching();
 		System.out
