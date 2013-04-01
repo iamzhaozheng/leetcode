@@ -9,7 +9,13 @@ import java.util.List;
  */
 public class Main {
 	public static void main(String[] args) {
-		testPalindromePartitioning();
+		testSurroundedRegions();
+	}
+	
+	public static void testSurroundedRegions() {
+		SurroundedRegions f = new SurroundedRegions();
+		f.solve(new char[][] {{'X', 'O', 'X'},{'O', 'X', 'O'},{'X', 'O', 'X'}});
+		
 	}
 
 	public static void testPalindromePartitioning() {
