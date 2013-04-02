@@ -1,6 +1,7 @@
 package com.hisrv.leetcode;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -9,13 +10,23 @@ import java.util.List;
  */
 public class Main {
 	public static void main(String[] args) {
-		testSurroundedRegions();
+		testWordLadder();
 	}
-	
+
+	public static void testWordLadder() {
+		WordLadder f = new WordLadder();
+		HashSet<String> set = new HashSet<String>();
+		set.add("a");
+		set.add("b");
+		set.add("c");
+		System.out.println(f.ladderLength("a", "b", set));
+	}
+
 	public static void testSurroundedRegions() {
 		SurroundedRegions f = new SurroundedRegions();
-		f.solve(new char[][] {{'X', 'O', 'X'},{'O', 'X', 'O'},{'X', 'O', 'X'}});
-		
+		f.solve(new char[][] { { 'X', 'O', 'X' }, { 'O', 'X', 'O' },
+				{ 'X', 'O', 'X' } });
+
 	}
 
 	public static void testPalindromePartitioning() {
@@ -28,7 +39,7 @@ public class Main {
 			System.out.print("\n");
 		}
 	}
-	
+
 	public static void testWildcardMatching() {
 		WildcardMatching f = new WildcardMatching();
 		System.out
