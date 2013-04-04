@@ -2,49 +2,51 @@ package com.hisrv.leetcode;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Stack;
+import java.util.LinkedList;
 
 public class WordLadder {
 	public int ladderLength(String start, String end, HashSet<String> dict) {
 		// Start typing your Java solution below
 		// DO NOT write main() function
 		int n = dict.size();
-		boolean[][] flags = new boolean[n][n];
 		String[] arr = new String[n];
 		dict.toArray(arr);
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				if (canTrans(arr[i], arr[j])) {
-					flags[i][j] = true;
-				} else {
-					flags[i][j] = false;
-				}
-			}
-		}
+		ListNode[] graph = new ListNode[n];
 		int s = 0, e = 0;
-		for (int i = 0; i < arr.length; i ++) {
+		for (int i = 0; i < n; i++) {
 			if (arr[i].equals(start)) {
 				s = i;
 			} else if (arr[i].equals(end)) {
 				e = i;
 			}
+			for (int j = i + 1; j < n; j++) {
+				if (canTrans(arr[i], arr[j])) {
+					ListNode node = new ListNode(j);
+					node.next = graph[i];
+					graph[i] = node;
+					node = new ListNode(i);
+					node.next = graph[j];
+					graph[j] = node;
+				}
+			}
 		}
 		int[] dist = new int[n];
 		Arrays.fill(dist, -1);
 		dist[s] = 0;
-		Stack<Integer> stack = new Stack<Integer>();
-		stack.push(s);
-		while (!stack.isEmpty()) {
-			int p = stack.pop();
-			for (int i = 0; i < n; i++) {
-				if (p != i && flags[p][i]) {
-					if (dist[i] == -1) {
-						stack.push(i);
-						dist[i] = dist[p] + 1;
-					} else {
-						dist[i] = Math.min(dist[i], dist[p] + 1);
+		LinkedList<Integer> queue = new LinkedList<Integer> ();
+		queue.push(s);
+		while (!queue.isEmpty()) {
+			int i = queue.poll();
+			ListNode q = graph[i];
+			while (q != null) {
+				if (dist[q.val] == -1) {
+					dist[q.val] = dist[i] + 1;
+					if (q.val == e) {
+						return dist[e] + 1;
 					}
+					queue.push(q.val);
 				}
+				q = q.next;
 			}
 		}
 		return dist[e] + 1;
@@ -57,7 +59,7 @@ public class WordLadder {
 				diffNum++;
 			}
 		}
-		return diffNum <= 1 ? true : false;
+		return diffNum == 1 ? true : false;
 	}
 
 }

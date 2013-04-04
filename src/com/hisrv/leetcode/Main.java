@@ -16,10 +16,10 @@ public class Main {
 	public static void testWordLadder() {
 		WordLadder f = new WordLadder();
 		HashSet<String> set = new HashSet<String>();
-		set.add("a");
-		set.add("b");
-		set.add("c");
-		System.out.println(f.ladderLength("a", "b", set));
+		set.add("hot");
+		set.add("dot");
+		set.add("dog");
+		System.out.println(f.ladderLength("hot", "dog", set));
 	}
 
 	public static void testSurroundedRegions() {
