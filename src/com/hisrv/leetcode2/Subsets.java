@@ -1,5 +1,10 @@
-public class Subsets2 {
-    public ArrayList<ArrayList<Integer>> subsetsWithDup(int[] S) {
+package com.hisrv.leetcode2;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Subsets {
+    public ArrayList<ArrayList<Integer>> subsets(int[] S) {
         // Start typing your Java solution below
         // DO NOT write main() function
         Arrays.sort(S);
@@ -7,8 +12,6 @@ public class Subsets2 {
         int n = S.length;
         int m = 1 << n;
         for (int i = 0; i < m; i ++) {
-            int j = 0;
-            while (j)
             ret.add(mask(S, i));
         }
         return ret;
