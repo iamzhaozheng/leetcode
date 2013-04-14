@@ -18,7 +18,7 @@ public class ScrambleString {
                     } else {
                         boolean temp = false;
                         for (int t = 0; t < i && !temp; t ++) {
-                            temp = temp || dp[t][j][k] && dp[i - t - 1][j + t + 1][k + t + 1] 
+                            temp = dp[t][j][k] && dp[i - t - 1][j + t + 1][k + t + 1] 
                                     || dp[t][j][k + i - t] && dp[i - t - 1][j + t + 1][k];
                         }
                         dp[i][j][k] = temp;
