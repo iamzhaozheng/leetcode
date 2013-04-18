@@ -4,16 +4,29 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import com.hisrv.leetcode2.KMP2;
+import com.hisrv.leetcode2.MaximalRectangle;
+
 /**
  * @author zhengzhaomail
  * 
  */
 public class Main {
 	public static void main(String[] args) {
-		testWordLadder2();
+		testKMP();
+	}
+	
+	public static void testKMP() {
+		KMP2 kmp = new KMP2();
+		System.out.println(kmp.strstr("abababc", "c"));
 	}
 	
 	private static final String[] sz = {"hot","cog","dot","dog","hit","lot","log"};
+	
+	public static void testMaximalRectangle() {
+		MaximalRectangle f = new MaximalRectangle();
+		System.out.println(String.valueOf(f.maximalRectangle(new char[][] {{'0', '1', '1', '0', '1'}, {'1', '1', '0', '1', '0'}, {'0', '1', '1', '1', '0'}, {'1', '1', '1', '1', '0'}, {'1', '1', '1', '1', '1'}, {'0', '0','0','0','0'}})));
+	}
 	
 	public static void testWordLadder2() {
 		WordLadder2 f = new WordLadder2();
