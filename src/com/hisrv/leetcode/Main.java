@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.hisrv.leetcode2.KMP2;
 import com.hisrv.leetcode2.MaximalRectangle;
+import com.hisrv.leetcode2._3Sum;
 
 /**
  * @author zhengzhaomail
@@ -13,7 +14,18 @@ import com.hisrv.leetcode2.MaximalRectangle;
  */
 public class Main {
 	public static void main(String[] args) {
-		testKMP();
+		test3Sum();
+	}
+	
+	public static void test3Sum() {
+		_3Sum f = new _3Sum();
+		ArrayList<ArrayList<Integer>> ret = f.threeSum(new int[] {0,7,-4,-7,0,14,-6,-4,-12,11,4,9,7,4,-10,8,10,5,4,14,6,0,-9,5,6,6,-11,1,-8,-1,2,-1,13,5,-1,-2,4,9,9,-1,-3,-1,-7,11,10,-2,-4,5,10,-15,-4,-6,-8,2,14,13,-7,11,-9,-8,-13,0,-1,-15,-10,13,-2,1,-1,-15,7,3,-9,7,-1,-14,-10,2,6,8,-6,-12,-13,1,-3,8,-9,-2,4,-2,-3,6,5,11,6,11,10,12,-11,-14});
+		for (ArrayList<Integer> r : ret) {
+			for (Integer t : r) {
+				System.out.print(t + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	public static void testKMP() {
