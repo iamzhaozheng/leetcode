@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.hisrv.leetcode2.KMP2;
 import com.hisrv.leetcode2.MaximalRectangle;
+import com.hisrv.leetcode2.MinimumWindowSubstring;
 import com.hisrv.leetcode2._3Sum;
 
 /**
@@ -14,7 +15,26 @@ import com.hisrv.leetcode2._3Sum;
  */
 public class Main {
 	public static void main(String[] args) {
-		test3Sum();
+//		testMinimunWindowSubstring();
+		for (int i = 3; i < 1000; i ++) {
+			if (pm(i) - 1 == 797922654) {
+				System.out.println(i);
+			}
+		}
+	}
+	
+	private static int pm(int n) {
+		int r = 1;
+		for (int i = 0; i < n; i ++) {
+			r = (r * 2) % 1000000007;
+		}
+		return r;
+	}
+
+	
+	public static void testMinimunWindowSubstring() {
+		MinimumWindowSubstring f = new MinimumWindowSubstring();
+		System.out.println(f.minWindow("cabefgecdaecf", "cae"));
 	}
 	
 	public static void test3Sum() {
