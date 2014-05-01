@@ -5,8 +5,6 @@ public class RegularExpressionMatching {
     private char[] p;
     
     public boolean isMatch(String S, String P) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
         char[] s = S.toCharArray();
         p = P.toCharArray();
         int n = s.length;

@@ -2,8 +2,6 @@ package com.hisrv.leetcode;
 
 public class RegularExpressionMatching {
     public boolean isMatch(String s, String p) {
-        // Start typing your Java solution below
-        // DO NOT write main() function
         if (s.length() == 0) {
             if (p.length() == 0) {
             	return true;
